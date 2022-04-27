@@ -1,3 +1,3 @@
 <?php
-echo "paneer tikkas";
+echo "paneer tikkas my fav";
 ?>
