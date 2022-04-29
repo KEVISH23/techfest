@@ -1,3 +1,4 @@
+<?php include("../../backend/index.php"); ?>
 <!doctype html>
 <html lang="en">
 
@@ -23,7 +24,7 @@
     <!-- navbar  -->
     <!-- ================================================================= -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark">
             <a class="navbar-brand" href="index.php">Library Management</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -122,52 +123,54 @@
     <!-- cards  -->
     <!-- ================================================================= -->
     <div class="container">
-        <div class="card-deck">
-            <div class="card">
-                <img src="https://source.unsplash.com/500x400/?book" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Book </h5>
-                    <p class="card-text">Book Title:</p>
-                    <p class="card-text">Author:</p>
+    <div class="row">
+<?php
+global $conn;
+$sql = "select * from books";
+$res = mysqli_query($conn,$sql);
+if ($res) {
+    # code...
+    $num = mysqli_num_rows($res);
+    if ($num>0) {
+        # code...
+        while($row = mysqli_fetch_assoc($res)){
+            $img =  $row['image'];
+            echo " <div class='col-md-4'>
+            <div class='card-deck'>
+            <div class='card'>
+                <img src='../admin/images/$img' class='card-img-top' alt='...'>
+                <div class='card-body'>
+                    <h5 class='card-title'>Book </h5>
+                    <p class='card-text'>Book Title: ".$row['name']."</p>
+                    <p class='card-text'>Author:  ".$row['author']."</p>
                 </div>
-                <div class="card-footer">
-                    <button type="submit" onclick="myFunction()" class="btn btn-success">Issue Now</button>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://source.unsplash.com/500x400/?book" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Book </h5>
-                    <p class="card-text">Book Title:</p>
-                    <p class="card-text">Author:</p>
-                </div>
-                <div class="card-footer">
-                    <button type="submit" onclick="myFunction()" class="btn btn-success">Issue Now</button>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://source.unsplash.com/500x400/?book" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Book </h5>
-                    <p class="card-text">Book Title:</p>
-                    <p class="card-text">Author:</p>
-                </div>
-                <div class="card-footer">
-                    <button type="submit" onclick="myFunction()" class="btn btn-success">Issue Now</button>
+                <div class='card-footer'>
+                    <button type='submit' onClick='myFunction()' class='btn btn-info'>Issue</button>
                 </div>
             </div>
         </div>
+        </div>";
+        }
+    }
+}
+?>
+</div>
     </div>
     <!-- =================================SCRIPT================================ -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 
-    <script>
-    function myFunction() {
-        alert("Please Login To Issue A Book!");
-    }
-</script>
+    
 
 </body>
 
 </html>
+<?php
+if(!(isset($_SESSION['username']))){
+  echo"<script>
+  function myFunction() {
+      alert('Please Login To Issue A Book!');
+  }
+</script>";
+}
+?>

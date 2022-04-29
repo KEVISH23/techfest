@@ -1,6 +1,13 @@
 <?php 
 include("../../backend/index.php");
 ?>
+<?php 
+session_start();
+if (!(isset($_SESSION['uname']))) {
+  # code...
+  echo "<script>window.open('index.php','_self')</script>";
+}
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -23,10 +30,13 @@ include("../../backend/index.php");
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav m-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="admin/abooks.php">Books</a>
+        <a class="nav-link" href="abooks.php">Books</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="admin/auser.php">Users</a>
+        <a class="nav-link" href="auser.php">Users</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="logout.php">Logout</a>
       </li>
       <!-- <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">

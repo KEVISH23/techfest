@@ -66,6 +66,8 @@
     $password = $_POST["password"];
     if($uname=="admin" && $password=="admin"){
       echo "<script>window.open('abooks.php','_self')</script>";
+      session_start();
+      $_SESSION['uname'] = $uname;
     }
     else{
       echo "<script>window.open('index.php','_self')</script>";
