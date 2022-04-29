@@ -11,6 +11,11 @@
 
     <link rel="stylesheet" href="style.css">
     <title>User</title>
+    <style>
+    body{
+      background-color: rgb(2, 65, 65);
+    }
+  </style>
 </head>
 
 <body>
@@ -27,13 +32,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="aindex.php">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Books</a>
+                        <a class="nav-link" href="abooks.php">Books</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">My Books</a>
+                        <a class="nav-link" href="mybooks.php">My Books</a>
                     </li>
 
                 </ul>

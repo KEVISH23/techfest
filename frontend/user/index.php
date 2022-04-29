@@ -9,8 +9,12 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="style.css">
   <title>User</title>
+  <style>
+    body{
+      background-color: rgb(2, 65, 65);
+    }
+  </style>
 </head>
 
 <body>
@@ -18,7 +22,7 @@
                 <!-- navbar  -->
   <!-- ================================================================= -->
   <header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark ">
     <a class="navbar-brand" href="index.php">Library Management</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -118,7 +122,7 @@
   <!-- ================================================================= -->
 
   <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
+  <div class="carousel-inner mt-2 ">
     <div class="carousel-item active" data-interval="10000">
       <img src="images/slider-1.jpg" class="d-block w-100" alt="...">
     </div>
