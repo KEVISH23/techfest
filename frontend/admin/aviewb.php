@@ -86,9 +86,7 @@ if ($res) {
                     <p class='card-text'>Book Title: ".$row['name']."</p>
                     <p class='card-text'>Author:  ".$row['author']."</p>
                 </div>
-                <div class='card-footer'>
-                    <button type='submit' class='btn btn-danger'>Delete</button>
-                </div>
+               
             </div>
         </div>
         </div>";
