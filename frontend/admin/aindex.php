@@ -19,7 +19,12 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav m-auto">
-     
+      <li class="nav-item active">
+        <a class="nav-link" href="admin/abooks.php">Books</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="admin/auser.php">Users</a>
+      </li>
       <!-- <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
           Dropdown
@@ -40,7 +45,6 @@
   </div>
 </nav>
 <div class="container">
-  <h2 class="text-white mt-4 text-center">Admin Login</h2>
   <div class="form1">
 <form method="post">
   <div class="mb-3 mt-3">
@@ -60,15 +64,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>  
   </body>
 </html>
-<?php
-  if(isset($_POST["submit"])){
-    $uname = $_POST["username"];
-    $password = $_POST["password"];
-    if($uname=="admin" && $password=="admin"){
-      echo "<script>window.open('abooks.php','_self')</script>";
-    }
-    else{
-      echo "<script>window.open('index.php','_self')</script>";
-    }
-   }
-?>

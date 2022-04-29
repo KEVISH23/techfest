@@ -1,3 +1,6 @@
 <?php
-echo "HEllo WOrld";
+$conn = mysqli_connect("localhost","root","","techfest");
+if($conn){
+    //echo "connection";
+}
 ?>
