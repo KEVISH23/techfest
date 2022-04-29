@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: rgb(2, 65, 65) !important;
+}
+.login{
+    margin-top: 200px;
+}
+.logbtn{
+    padding: 10px 30px !important;
+    margin-left: 10px;
+    font-size: 20px !important;
+}
+.navbar{
+    background-color: rgb(2, 65, 65) !important;
+}
+label{
+    color: aliceblue !important;
+}
+.form1{
+    display: flex;
+    justify-content: center;
+    width: 100% !important;
+}

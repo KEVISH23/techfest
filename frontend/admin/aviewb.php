@@ -1,3 +1,6 @@
+<?php 
+include("../../backend/index.php");
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -19,7 +22,12 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav m-auto">
-     
+      <li class="nav-item active">
+        <a class="nav-link" href="admin/abooks.php">Books</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="admin/auser.php">Users</a>
+      </li>
       <!-- <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
           Dropdown
@@ -40,35 +48,48 @@
   </div>
 </nav>
 <div class="container">
-  <h2 class="text-white mt-4 text-center">Admin Login</h2>
-  <div class="form1">
-<form method="post">
-  <div class="mb-3 mt-3">
-    <label for="exampleInputEmail1" class="form-label text-white">Username</label>
-    <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label text-white">Password</label>
-    <input type="password" name="password" class="form-control" id="exampleInputPassword1">
-  </div>
- 
-  <button type="submit" name="submit" class="btn btn-success">Submit</button>
-</form>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    
+  <li class="breadcrumb-item active"><a href="abooks.php"> Add books</a></li>
+  <li class="breadcrumb-item" aria-current="aviewb.php"> View books</li>
+  </ol>
+</nav>
+<div class="row">
+<?php
+global $conn;
+$sql = "select * from books";
+$res = mysqli_query($conn,$sql);
+if ($res) {
+    # code...
+    $num = mysqli_num_rows($res);
+    if ($num>0) {
+        # code...
+        while($row = mysqli_fetch_assoc($res)){
+            $img =  $row['image'];
+            echo " <div class='col-md-4'>
+            <div class='card-deck'>
+            <div class='card'>
+                <img src='images/$img' class='card-img-top' alt='...'>
+                <div class='card-body'>
+                    <h5 class='card-title'>Book </h5>
+                    <p class='card-text'>Book Title: ".$row['name']."</p>
+                    <p class='card-text'>Author:  ".$row['author']."</p>
+                </div>
+                <div class='card-footer'>
+                    <button type='submit' class='btn btn-danger'>Delete</button>
+                </div>
+            </div>
+        </div>
+        </div>";
+        }
+    }
+}
+?>
 </div>
 </div>
+
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>  
   </body>
 </html>
-<?php
-  if(isset($_POST["submit"])){
-    $uname = $_POST["username"];
-    $password = $_POST["password"];
-    if($uname=="admin" && $password=="admin"){
-      echo "<script>window.open('abooks.php','_self')</script>";
-    }
-    else{
-      echo "<script>window.open('index.php','_self')</script>";
-    }
-   }
-?>
